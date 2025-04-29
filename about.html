@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Vishwakarma Laghu Udyog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #f88400;
+            --secondary-color: #e67e22;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --white-color: #fff;
+            --success-color: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Oleo Script", system-ui;
+            font-weight: 400;
+            font-style: normal;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--dark-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .text-primary {
+            color: var(--primary-color);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .py-1 {
+            padding: 1rem 0;
+        }
+
+        .py-2 {
+            padding: 2rem 0;
+        }
+
+        .py-3 {
+            padding: 3rem 0;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            display: block;
+            color: var(--dark-color);
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
+            color: var(--primary-color);
+        }
+
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Images/about-page.jpg') no-repeat center center/cover; */
+            height: 80vh;
+            color: var(--white-color);
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background-color: var(--white-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .product-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background-color: var(--white-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* About Page */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Images/about-page2.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--white-color);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+        }
+
+        .breadcrumb a {
+            color: var(--white-color);
+            margin: 0 10px;
+        }
+
+        .breadcrumb a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .company-info {
+            padding: 4rem 0;
+        }
+
+        .company-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .mission-vision {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+
+        .mv-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .mv-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mv-card h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Page */
+        .contact-page {
+            padding: 4rem 0;
+        }
+
+        .map-container {
+            height: 400px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+
+            .about-content,
+            .mv-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .hero h1,
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        /* for gallery section  */
+
+        /* Base Styles */
+        .gallery-heading {
+            text-align: center;
+            font-size: 3rem;
+            margin: 2rem 0;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Featured Image Styles */
+        .featured-container {
+            width: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Gallery Grid Styles */
+        .gallery-container {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            /* Square containers - change as needed */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover Effects */
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+
+        /* For video section */
+
+        .video-container {
+            position: relative;
+            width: 620px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.02);
+        }
+
+        .hover-video {
+            width: 100%;
+            display: block;
+            transition: all 0.5s ease;
+            opacity: 0.9;
+        }
+
+        .video-container:hover .hover-video {
+            opacity: 1;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: white;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .video-container:hover .play-icon {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        /* Glow effect on hover */
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .video-container:hover::before {
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/index.html">
+                <img src="/Logo/VISHWAKARMA LAGHU UDYOG logoo.svg" alt="Vishwakarma Laghu Udyog Logo"></a>
+
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>About Our Company</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="about.html" class="active">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Info -->
+    <section class="company-info py-3">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>At Vishwakarma Laghu Udyog, we started our journey as a small-scale wire nails manufacturing unit
+                        in Churu, Rajasthan. Guided by a clear vision to deliver premium-quality wire nails at
+                        competitive prices, we steadily expanded our operations and diversified our product range.
+
+                        Today, we are recognized as a trusted name in the industry, catering to clients across India.
+                        Our unwavering commitment to quality, innovation, and customer satisfaction drives everything we
+                        do.
+
+                        .</p>
+                    <p>Today, we are a trusted name in the industry, supplying our products to clients across India. Our
+                        commitment to quality and customer satisfaction has been the driving force behind our success.
+                    </p>
+                    <p>We take pride in our skilled workforce, modern manufacturing techniques, and stringent quality
+                        control measures that ensure we deliver only the best products to our customers.</p>
+                </div>
+                <div class="about-img">
+                    <img src="/Images/img4.jpeg" alt="Our Factory">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision py-3">
+        <div class="container">
+            <div class="mv-container">
+                <div class="mv-card">
+                    <h2>Our Mission</h2>
+                    <p>To manufacture and supply high-quality wire nails and related products that meet international
+                        standards at competitive prices, while maintaining ethical business practices and ensuring
+                        customer satisfaction.</p>
+                    <p>We aim to continuously improve our manufacturing processes, invest in technology, and develop our
+                        workforce to maintain our position as a leading manufacturer in the industry.</p>
+                </div>
+                <div class="mv-card">
+                    <h2>Our Vision</h2>
+                    <p>To become the most trusted and preferred wire nails manufacturer in India, recognized for our
+                        quality products, reliability, and customer-centric approach.</p>
+                    <p>We envision expanding our operations to serve international markets while maintaining our
+                        commitment to quality and sustainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <section class="company-info py-3">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Values</h2>
+                <p>The principles that guide everything we do at Vishwakarma Laghu Udyog</p>
+            </div>
+            <div class="company-info-grid">
+                <div class="info-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Quality</h3>
+                    <p>We are committed to maintaining the highest quality standards in all our products through
+                        rigorous quality control measures.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Integrity</h3>
+                    <p>We conduct our business with honesty, transparency, and fairness in all our dealings with
+                        customers and suppliers.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Customer Focus</h3>
+                    <p>Our customers are at the heart of everything we do. We strive to understand and meet their needs
+                        effectively.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>We continuously seek to improve our products and processes through innovation and technology
+                        adoption.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We are committed to environmentally responsible manufacturing practices and sustainable growth.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-people-arrows"></i>
+                    <h3>Teamwork</h3>
+                    <p>We believe in collaboration and teamwork to achieve our common goals and deliver exceptional
+                        results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- for gellery section -->
+    <h1 class="gallery-heading">OUR FACTORY</h1>
+
+    <!-- Full-width featured image (6th photo) -->
+    <div class="featured-container">
+        <img src="/Images/img4.jpeg" class="featured-img" alt="Featured Factory Image">
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-container">
+        <div class="gallery">
+            <!-- All photos except the 6th one -->
+            <div class="image-container">
+                <img src="/Images/photo1.jpeg" class="gallery-img" alt="Factory Image 1">
+            </div>
+            
+            <div class="image-container">
+                <img src="/Images/photo3.jpeg" class="gallery-img" alt="Factory Image 3">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo4.jpeg" class="gallery-img" alt="Factory Image 4">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo5.jpeg" class="gallery-img" alt="Factory Image 5">
+            </div>
+            <!-- Skip photo6 as it's featured above -->
+            <div class="image-container">
+                <img src="/Images/photo7.jpeg" class="gallery-img" alt="Factory Image 7">
+            </div>
+            <!-- Continue with remaining photos -->
+            
+            <div class="image-container">
+                <img src="/Images/photo10.jpeg" class="gallery-img" alt="Factory Image 10">
+            </div>
+            
+            <div class="image-container">
+                <img src="/Images/photo12.jpeg" class="gallery-img" alt="Factory Image 12">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo13.jpeg" class="gallery-img" alt="Factory Image 13">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo14.jpeg" class="gallery-img" alt="Factory Image 14">
+            </div>
+            
+            <div class="image-container">
+                <img src="/Images/photo19.jpeg" class="gallery-img" alt="Factory Image 15">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo20.jpeg" class="gallery-img" alt="Factory Image 15">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo21.jpeg" class="gallery-img" alt="Factory Image 15">
+            </div>
+            <div class="image-container">
+                <img src="/Images/photo22.jpeg" class="gallery-img" alt="Factory Image 15">
+            </div>
+            <div class="image-container">
+                <video class="hover-video" loop muted poster="your-poster.jpg">
+                    <source src="/Images/gallery.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="image-container">
+                <video class="hover-video" loop muted poster="your-poster.jpg">
+                    <source src="/Images/ppppp.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="image-container">
+                <video class="hover-video" loop muted poster="your-poster.jpg">
+                    <source src="/Images/hh.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="play-icon">▶</div>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="logo">
+                        <a href="/index.html">
+                        <img src="/Logo/white-logo.png" alt="Vishwakarma Laghu Udyog Logo"></a>
+
+                    </div>
+                    <p>Crafting High-Quality Wire Nails and Related Products with a Commitment to Excellence and
+                        Customer Satisfaction.</p>
+                    
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Products</h3>
+                    <ul>
+                        <li><a href="#">Wire Nails</a></li>
+                        <li><a href="#">Concrete Nails</a></li>
+                        <li><a href="#">H.B Wire</a></li>
+                        <li><a href="#">Barbed Wire</a></li>
+                        <li><a href="#">Chain Link Jali</a></li>
+
+                        <li><a href="#">Barbed Wire</a></li>
+                        <li><a href="#">Chain Link Jali</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i>G-74-A, Industrial Area, Road No. 2.A, Churu - 331001,
+                            Rajasthan, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9829750311</li>
+                        <li><i class="fas fa-envelope"></i>vishwakarma.info.udyog@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vishwakarma Laghu Udyog. All Rights Reserved. This website is made by Versai Technology</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality would go here
+        document.addEventListener('DOMContentLoaded', function () {
+            // Any JavaScript for the about page
+            console.log('About page loaded');
+        });
+
+        document.querySelectorAll('.hover-video').forEach(video => {
+            const container = video.closest('.image-container');
+
+            container.addEventListener('mouseenter', () => {
+                video.play();
+            });
+
+            container.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+        // Highlight current page in navigation
+        const currentPage = location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
